@@ -13,3 +13,4 @@ app
     res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
   })
   .listen(port);
+  console.log('Server running on localhost:3000');
