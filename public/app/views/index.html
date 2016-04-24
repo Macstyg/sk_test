@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <script src="assets/libs/angular/angular.min.js"></script>
+  <script src="app/app.js"></script>
+</head>
+<body ng-controller="mainController">
+<script type="text/ng-template" id="treeLevel">
+   id: {{ item.id }}
+  <ul ng-if="item.sub">
+    <li ng-repeat="item in item.sub | filter: search" ng-include="'treeLevel'"></li>
+  </ul>
+</script>
+
+<label>
+  <input type="text" ng-model="search">
+</label>
+
+ <ul>
+   <li ng-repeat="item in items | filter: search" ng-include="'treeLevel'"></li>
+ </ul>
+
+ <button type="submit" value="Get Serialize" ng-click="serialize()">Serialized data:</button>
+ {{ responseString }}
+</body>
+</html>
